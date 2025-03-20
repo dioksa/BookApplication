@@ -16,7 +16,7 @@ final class BookViewModel: ObservableObject {
         }
     }
     
-    private func loadData() async {
+    func loadData() async {
         if let data = await BookDataService.shared.loadData() {
             await decodeJSON(data)
         }
