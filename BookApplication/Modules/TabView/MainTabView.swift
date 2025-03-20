@@ -16,12 +16,12 @@ struct MainTabView: View {
         TabView() {
             FirstPageView()
                 .tabItem {
-                    Label("Home", systemImage: "doc.text")
+                    Label("First", systemImage: "doc.text")
                 }
 
             SecondPageView()
                 .tabItem {
-                    Label("Profile", systemImage: "book")
+                    Label("Second", systemImage: "book")
                 }
         }
         .tint(.black)
