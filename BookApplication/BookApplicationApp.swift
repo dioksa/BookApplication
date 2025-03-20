@@ -9,9 +9,23 @@ import SwiftUI
 
 @main
 struct BookApplicationApp: App {
+    @State private var isSplashScreenShown = true
+    
+    private enum Constants {
+        static let loadingDuration: TimeInterval = 6.0
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isSplashScreenShown {
+                StartLoadingView()
+                    .task {
+                        try? await Task.sleep(for: .seconds(Constants.loadingDuration))
+                        isSplashScreenShown.toggle()
+                    }
+            } else {
+                ContentView()
+            }
         }
     }
 }
