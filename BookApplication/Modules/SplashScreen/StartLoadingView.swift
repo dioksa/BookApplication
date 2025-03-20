@@ -28,9 +28,9 @@ struct StartLoadingView: View {
     var body: some View {
         ZStack {
             MirroredSShape(points: points)
-                .stroke(Color.black, style: StrokeStyle(lineWidth: 5, dash: [1, 3]))
+                .stroke(Color.tundora, style: StrokeStyle(lineWidth: 3, dash: [9, 5]))
             PathAnimationView(bezierPath: makeBezierPath())
-        }
+        }.background(Color.lilac)
     }
     
     func makeBezierPath() -> UIBezierPath {
@@ -71,7 +71,7 @@ struct PathAnimationView: UIViewRepresentable {
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         
         let animatedImageView = UIImageView(image: UIImage(systemName: "book"))
-        animatedImageView.tintColor = .blue
+        animatedImageView.tintColor = UIColor(Color.thunderbird)
         animatedImageView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         containerView.addSubview(animatedImageView)
         
