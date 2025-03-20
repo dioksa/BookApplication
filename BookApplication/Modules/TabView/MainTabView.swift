@@ -16,14 +16,19 @@ struct MainTabView: View {
     
     var body: some View {
         TabView {
-            ForEach(viewModel.pages) { page in
-                NavigationView {
-                    EachItemView(item: page)
-                        .navigationTitle(page.title ?? "Page")
-                        .navigationBarTitleDisplayMode(.large)
-                }
-                .tabItem {
-                    Label(page.title ?? "Page", systemImage: tabIcon(for: page.title))
+            if viewModel.isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .chenin))
+            } else {
+                ForEach(viewModel.pages) { page in
+                    NavigationView {
+                        EachItemView(item: page)
+                            .navigationTitle(page.title ?? "Page")
+                            .navigationBarTitleDisplayMode(.large)
+                    }
+                    .tabItem {
+                        Label(page.title ?? "Page", systemImage: tabIcon(for: page.title))
+                    }
                 }
             }
         }

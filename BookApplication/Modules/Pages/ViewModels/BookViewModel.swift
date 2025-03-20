@@ -9,6 +9,7 @@ import SwiftUI
 
 final class BookViewModel: ObservableObject {
     @Published var pages: [BookItem] = []
+    @Published var isLoading = true
     
     init() {
         Task {
@@ -17,8 +18,16 @@ final class BookViewModel: ObservableObject {
     }
     
     func loadData() async {
+        await MainActor.run {
+            isLoading = true
+        }
+                
         if let data = await BookDataService.shared.loadData() {
             await decodeJSON(data)
+        }
+        
+        await MainActor.run {
+            isLoading = false
         }
     }
 
