@@ -13,7 +13,6 @@
 import SwiftUI
 
 enum ColorStyle {
-    case codGray
     case gallery
     case tundora
     case thunderbird
@@ -24,13 +23,10 @@ enum ColorStyle {
 }
 
 extension Color {
-    /// #0A0A0A - rgb(10/10/10)
-    static let codGray = Color(#colorLiteral(red: 0.03921568627, green: 0.03921568627, blue: 0.03921568627, alpha: 1))
     /// #ECECEC - rgb(236/236/236)
     static let gallery = Color(#colorLiteral(red: 0.9254901961, green: 0.9254901961, blue: 0.9254901961, alpha: 1))
     /// #414141 - rgb(65/65/65)
     static let tundora = Color(#colorLiteral(red: 0.2549019608, green: 0.2549019608, blue: 0.2549019608, alpha: 1))
-    
     /// #C72D12 - rgb(199/45/18)
     static let thunderbird = Color(#colorLiteral(red: 0.7803921569, green: 0.1764705882, blue: 0.07058823529, alpha: 1))
     /// #0A84FF - rgb(10/132/255)
