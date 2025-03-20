@@ -24,7 +24,7 @@ struct BookApplicationApp: App {
                         isSplashScreenShown.toggle()
                     }
             } else {
-                ContentView()
+                MainTabView()
             }
         }
     }
