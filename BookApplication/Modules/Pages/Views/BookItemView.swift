@@ -13,7 +13,9 @@ struct BookItemView: View {
     var body: some View {
         switch item.type {
         case "text":
-            Text(item.title ?? "").font(.body)
+            Text(item.title ?? "")
+                .font(FontStyle.medium.font(size: .h18))
+                .foregroundStyle(Color.azureRadiance)
         case "image":
             if let urlString = item.src, let url = URL(string: urlString) {
                 NavigationLink(destination: ImageDetailsView(imageURL: url, title: item.title ?? "")) {
@@ -25,11 +27,13 @@ struct BookItemView: View {
                 }
             }
         case "section":
-            Section(header: Text(item.title ?? "").font(.title2)) {
+            Section(header: Text(item.title ?? "")) {
                 ForEach(item.items ?? []) { subItem in
                     BookItemView(item: subItem)
                 }
             }
+            .font(FontStyle.bold.font(size: .h20))
+            .foregroundStyle(Color.chenin)
         default:
             EmptyView()
         }

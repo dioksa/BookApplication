@@ -28,9 +28,9 @@ struct MainTabView: View {
             }
         }
         
-        .tint(.black)
+        .tint(Color.gallery)
         .onAppear {
-            UITabBar.appearance().unselectedItemTintColor = .white
+            UITabBar.appearance().unselectedItemTintColor = .black
         }
         
         .refreshable {

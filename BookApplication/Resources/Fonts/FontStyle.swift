@@ -8,15 +8,12 @@
 import SwiftUI
 
 enum FontStyle {
-    case light
     case regular
     case medium
     case bold
 
     func font(size: Size) -> Font {
         switch self {
-        case .light:
-            return .custom(Name.light.rawValue, size: size.rawValue)
         case .regular:
             return .custom(Name.regular.rawValue, size: size.rawValue)
         case .medium:
@@ -29,7 +26,6 @@ enum FontStyle {
 }
 
 enum Name: String {
-    case light = "LeagueSpartan-Light"
     case regular = "LeagueSpartan-Regular"
     case medium = "LeagueSpartan-Medium"
     case bold = "LeagueSpartan-Bold"
@@ -37,7 +33,7 @@ enum Name: String {
 
 enum Size: CGFloat {
     case h12 = 12.0
-    case h16 = 16.0
+    case h18 = 18.0
+    case h20 = 20.0
     case h24 = 24.0
-    case h32 = 32.0
 }
