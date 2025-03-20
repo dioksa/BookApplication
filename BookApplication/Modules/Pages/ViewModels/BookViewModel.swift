@@ -18,10 +18,11 @@ final class BookViewModel: ObservableObject {
     
     private func loadData() async {
         if let data = await BookDataService.shared.loadData() {
-            decodeJSON(data)
+            await decodeJSON(data)
         }
     }
 
+    @MainActor
     private func decodeJSON(_ data: Data) {
         do {
             let decodedData = try JSONDecoder().decode(BookItem.self, from: data)
