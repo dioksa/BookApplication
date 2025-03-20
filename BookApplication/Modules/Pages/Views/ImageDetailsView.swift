@@ -4,6 +4,7 @@
 //
 //  Created by Oksana Dionisieva on 20.03.2025.
 //
+
 import SwiftUI
 
 struct ImageDetailsView: View {

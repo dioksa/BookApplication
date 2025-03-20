@@ -27,9 +27,14 @@ struct MainTabView: View {
                 }
             }
         }
+        
         .tint(.black)
         .onAppear {
             UITabBar.appearance().unselectedItemTintColor = .white
+        }
+        
+        .refreshable {
+            await viewModel.loadData()
         }
     }
     
